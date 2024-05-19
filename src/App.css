@@ -1,38 +1,231 @@
-.App {
-  text-align: center;
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* Définition des polices personnalisées */
+@font-face {
+  font-family: 'Lobster Two Bold';
+  src: url('./assets/fonts/LobsterTwo-Bold.woff2') format('woff2'),
+      url('./assets/fonts/LobsterTwo-Bold.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+@font-face {
+  font-family: 'Lobster Two Bold Italic';
+  src: url('./assets/fonts/LobsterTwo-BoldItalic.woff2') format('woff2'),
+      url('./assets/fonts/LobsterTwo-BoldItalic.woff') format('woff');
+  font-weight: bold;
+  font-style: italic;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+@font-face {
+  font-family: 'Lobster Two Italic';
+  src: url('./assets/fonts/LobsterTwo-Italic.woff2') format('woff2'),
+      url('./assets/fonts/LobsterTwo-Italic.woff') format('woff');
+  font-weight: normal;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Mr De Haviland Regular';
+  src: url('./assets/fonts/MrDeHaviland-Regular.woff2') format('woff2'),
+      url('./assets/fonts/MrDeHaviland-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Utilisation des polices personnalisées */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Lobster Two Bold', cursive; /* Utilisation de Lobster Two Bold pour les titres */
+}
+
+em {
+    font-family: 'Lobster Two Italic', cursive; /* Utilisation de Lobster Two Italic pour les éléments en italique */
+}
+
+p {
+    font-family: 'Lobster Two', cursive; /* Utilisation de Lobster Two pour les paragraphes */
+}
+
+.special-element {
+    font-family: 'Mr De Haviland Regular', cursive; /* Utilisation de Mr De Haviland pour un élément spécifique */
+}
+
+.header {
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  gap: 50px;
+  margin-bottom: 50px;
 }
 
-.App-link {
-  color: #61dafb;
+.logo {
+  margin-right: 20px;
+  max-width: 200px;
+  margin-right: 20px; 
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.title {
+  display: flex;
+  flex-direction:row;
+  gap: 20px;
+}
+
+.title h1 {
+  text-align: center;
+
+  font-size: 50px;
+  margin-top: 30px;
+  margin-bottom: 50px;
+}
+.title p  {
+  text-align: center;
+  font-family: 'Lobster', cursive;
+  font-size: 20px;
+  color: #4E5C34;
+  margin-top: 55px;
+  margin-bottom: 50px;
+}
+
+.container {
+  display: flex;
+  justify-content:center;
+  padding: 20px;
+  height: 650px;
+  background-color: #7E9FAC;
+  padding: 10px;
+  margin: auto;
+  border: 1px solid #4E5C34; 
+  border-radius: 5px; 
+  box-shadow: 0 8px 10px #4E5C34;
+  max-width: 90%;
+}
+
+.marker-selector {
+  flex: 1;
+  max-width: 20%;
+  font-family: 'Lobster Two', cursive;
+  font-size: 30px;
+}
+
+#markerSelect, Button {
+  font-family: 'Lobster Two', cursive;
+  font-size: 20px;
+  background-color: #7E9FAC;
+  border: 1px solid #4E5C34; 
+  border-radius: 5px; 
+}
+.map-container {
+  flex: 2;
+  max-width: 70%;
+  height: 500px;
+}
+
+#map {
+  height: 100%;
+  width: 100%;
+}
+
+
+/* Styles pour les écrans de taille moyenne (tablettes) */
+@media only screen and (max-width: 1024px) {
+  .container {
+    flex-direction: column;
+    height: auto;
   }
-  to {
-    transform: rotate(360deg);
+
+  .marker-selector {
+    max-width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .map-container {
+    max-width: 100%;
+    height: 400px; /* Ajustez la hauteur selon vos besoins */
+  }
+}
+
+/* Styles pour les écrans étroits (mobiles) */
+@media only screen and (max-width: 768px) {
+  .title h1 {
+    font-size: 30px; /* Ajustez la taille de la police selon vos besoins */
+  }
+
+  .title p {
+    font-size: 16px; /* Ajustez la taille de la police selon vos besoins */
+  }
+}
+
+/* Styles pour les écrans très étroits (petits écrans) */
+@media only screen and (max-width: 480px) {
+  .title h1 {
+    font-size: 24px;
+    flex-wrap: wrap;
+  }
+
+  .title p {
+    font-size: 14px; /* Ajustez la taille de la police selon vos besoins */
+    margin-top: 30px; /* Ajustez l'espacement selon vos besoins */
+    margin-bottom: 30px; /* Ajustez l'espacement selon vos besoins */
+  }
+
+  .container {
+    flex-direction: column;
+    height: 500px;
+  }
+  .marker-selector {
+    font-size: 20px; /* Ajustez la taille de la police selon vos besoins */
+    max-width: 100%;
+    margin-bottom: 20px; /* Ajustez l'espacement selon vos besoins */
+  }
+
+  .map-container {
+    max-width: 100%;
+    height: 300px; /* Ajustez la hauteur selon vos besoins */
+  }
+}
+/* Styles pour les écrans très étroits (petits écrans) */
+@media only screen and (max-width: 390px) {
+  .title{
+    flex-wrap: wrap;
+    gap: 0px;
+  }
+  .title h1 {
+    font-size: 25px; /* Ajustez la taille de la police selon vos besoins */
+    margin: 0px;
+  }
+
+  .title p {
+    font-size: 14px; /* Ajustez la taille de la police selon vos besoins */
+    margin-top: 20px; /* Ajustez l'espacement selon vos besoins */
+    margin-bottom: 20px; /* Ajustez l'espacement selon vos besoins */
+  }
+
+  .marker-selector {
+    font-size: 16px; /* Ajustez la taille de la police selon vos besoins */
+    max-width: 100%;
+    margin-bottom: 10px; /* Ajustez l'espacement selon vos besoins */
+  }
+
+  .map-container {
+    max-width: 100%;
+    height: 200px; /* Ajustez la hauteur selon vos besoins */
+  }
+  .container {
+    flex-direction: column;
+    height: 600px;
+  }
+  
+  .logo {
+    margin-left: 50px;
+    max-width: 100px;
+  }
+
+  .header {
+    margin-top: 50px;
   }
 }
